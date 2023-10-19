@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>VOFI DUNGEON</title>
+	<style>
+		html, body {
+			background-color: black;
+			overflow: hidden;
+			user-select: none;
+		}
+		canvas {
+			top: 50%;
+			left: 50%;
+			position: absolute;
+			transform: translate(-50%, -50%);
+		}
+		#controls {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			z-index: 10;
+			color: white;
+		}
+		button {
+			color: blue;
+		}
+		@keyframes indeterminateLoadingBar {
+			0% {
+				transform:  translateX(0) scaleX(0);
+			}
+			40% {
+				transform:  translateX(0) scaleX(0.4);
+			}
+			100% {
+				transform:  translateX(100%) scaleX(0.5);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="controls">
+		<div id="fps"></div>
+		<div id="scale"></div>
+	</div>
+</body>
+</html>

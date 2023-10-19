@@ -1,0 +1,6 @@
+runtime: nodejs16
+service: default
+instance_class: F1
+
+network:
+  session_affinity: true
