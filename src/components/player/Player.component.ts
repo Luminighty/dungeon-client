@@ -1,16 +1,17 @@
 import { Entity, World } from "../../entities";
 import { Controls } from "../../systems/controls";
+import { AnimationControllerComponent } from "../AnimationController.component";
 import { AnimationPlayerComponent } from "../AnimationPlayer.component";
 
 export class PlayerComponent {
 	static readonly COMPONENT_ID = "PlayerComponent" as const;
 	parent!: Entity;
 	world!: World;
-	animationPlayer!: AnimationPlayerComponent;
+	animationController!: AnimationControllerComponent;
 	facing = "down";
 
 	onInit() {
-		this.animationPlayer = this.parent.getComponent(AnimationPlayerComponent);
+		this.animationController = this.parent.getComponent(AnimationControllerComponent);
 	}
 
 	onUpdate() {
@@ -20,27 +21,22 @@ export class PlayerComponent {
 	move() {
 		const x = Controls.x;
 		const y = Controls.y;
-		if (x < 0) {
-			this.animationPlayer.playAnimation("move_left");
-			this.facing = "left";
-			return;
-		}
-		if (x > 0) {
-			this.animationPlayer.playAnimation("move_right");
-			this.facing = "right";
-			return;
-		}
-		if (y < 0) {
-			this.animationPlayer.playAnimation("move_up");
-			this.facing = "up";
-			return;
-		}
-		if (y > 0) {
-			this.animationPlayer.playAnimation("move_down");
-			this.facing = "down";
-			return;
-		}
-		this.animationPlayer.playAnimation(`idle_${this.facing}`);
+		this.facing = this.getFacing(x, y) ?? this.facing
+		this.animationController.setParam("facing", this.facing);
+		this.animationController.setParam("moving", Boolean(x || y));
+		this.animationController.updateAnimation();
+	}
+
+	getFacing(x: number, y: number) {
+		if (x < 0)
+			return "left";
+		if (x > 0)
+			return "right";
+		if (y < 0)
+			return "up";
+		if (y > 0)
+			return "down";
+		return null;
 	}
 
 

@@ -39,5 +39,21 @@
 			<Frame x="5" y="1" />
 		</Animation>
 	</AnimationPlayerComponent>
+	<AnimationControllerComponent>
+		<Trigger event="attack" facing="up" animation="attack_up" />
+		<Trigger event="attack" facing="down" animation="attack_down" />
+		<Trigger event="attack" facing="left" animation="attack_left" />
+		<Trigger event="attack" facing="right" animation="attack_right" />
+
+		<Condition facing="up" moving="true" animation="move_up" />
+		<Condition facing="down" moving="true" animation="move_down" />
+		<Condition facing="left" moving="true" animation="move_left" />
+		<Condition facing="right" moving="true" animation="move_right" />
+
+		<Condition facing="up" animation="idle_up" />
+		<Condition facing="left" animation="idle_left" />
+		<Condition facing="right" animation="idle_right" />
+		<Condition animation="idle_down" />
+	</AnimationControllerComponent>
 	<UpdateComponent />
 </Entity>

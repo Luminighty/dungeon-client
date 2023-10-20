@@ -3,7 +3,6 @@ import { Entity, World } from "../entities";
 import { Serializable } from "../network";
 import { SpriteComponent } from "./Sprite.component";
 
-const EMPTY_TEXTURE = "assets/textures/empty.png";
 
 interface Frame {
 	x: number,
@@ -41,7 +40,6 @@ export class AnimationPlayerComponent {
 	onInit() {
 		this.sprite = this.parent.getComponent(SpriteComponent);
 		this.animation = this.animations[0];
-		window["animation"] = this;
 	}
 
 	onLateInit() {
