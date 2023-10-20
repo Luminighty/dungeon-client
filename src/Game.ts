@@ -6,21 +6,23 @@ import { Entity, World, createWorld, loadEntityBlueprintRegistry } from "./entit
 import { initControls, updateControls } from "./systems/controls";
 import { Socket } from "socket.io-client";
 
-export async function Init(app: Application, socket: Socket) {
+export async function Init(app: Application) {
 	const loadingBar = LoadingBar();
 
 	registerComponents();
 	await loadEntityBlueprintRegistry(loadingBar);
 	await initControls(app);
-	const world = createWorld(app, socket);
-	world.addEntity("DataStorage");
+	const world = createWorld(app);
+	//world.addEntity("DataStorage");
 
 	loadingBar.label = "Loading Player";
 	loadingBar.determinate = false;
-	const { userId, entities, spawn } = await world.networkHandler.initPlayer();
+	//const { userId, entities, spawn } = await world.networkHandler.initPlayer();
 
 	console.log("Starting ticker");
-		
+	const hero = await world.addEntity("Hero");
+	window["hero"] = hero;
+	console.log(hero);
 	app.ticker.add((dt) => {
 		world.queryEntity(UpdateComponent)[0]
 			.map((c) => c.update({dt}));

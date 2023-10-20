@@ -32,11 +32,6 @@ export class SpriteComponent {
 		this.sprite.destroy();
 	}
 
-	onMove({x}) {
-		if (x * this.sprite.scale.x < 0)
-			this.sprite.scale.x *= -1;
-	}
-
 	onPositionChanged({ x, y }) {
 		if (this.sprite)
 			this.sprite.position.set(x, y);
@@ -48,5 +43,14 @@ export class SpriteComponent {
 
 	onUnload() {
 		this.sprite.visible = false;
+	}
+
+	get flipX() {
+		return this.sprite.scale.x < 0;
+	}
+
+	set flipX(value: boolean) {
+		if (this.flipX !== value)
+			this.sprite.scale.x *= -1;
 	}
 }

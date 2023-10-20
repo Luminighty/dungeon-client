@@ -1,4 +1,4 @@
-import { Application, Container } from "pixi.js";
+import { Application, Container, DisplayObject } from "pixi.js";
 import { EntitiesBlueprints, Entity } from "./entity";
 import { GameConfig, RenderLayerKey } from "../config";
 import { Component } from "../components";
@@ -101,16 +101,16 @@ function transpose(arr) {
   return arr[0].map((_, i) => arr.map(row => row[i]));
 }
 
-export function createWorld(app: Application, socket: Socket): World {
+export function createWorld(app: Application): World {
 	const renderContainers = {} as {[key in RenderLayerKey]: Container};
 	GameConfig.renderLayers.forEach((layer) => { 
-		const container = new Container();
-		app.stage.addChild(container);
+		const container = new Container<DisplayObject>();
+		app.stage.addChild(container as DisplayObject);
 		renderContainers[layer] = container;
 	});
 	const world = new World();
 	world.renderContainers = renderContainers;
 	world.app = app;
-	world.networkHandler = new NetworkHandler(world, socket);
+	// world.networkHandler = new NetworkHandler(world, socket);
 	return world;
 }

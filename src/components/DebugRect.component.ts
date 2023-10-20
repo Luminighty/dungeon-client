@@ -1,4 +1,4 @@
-import { Graphics } from "pixi.js";
+import { DisplayObject, Graphics } from "pixi.js";
 import { Entity, World } from "../entities";
 
 export class DebugRectComponent {
@@ -24,7 +24,7 @@ export class DebugRectComponent {
 
 	onInit() {
 		this.graphics = new Graphics();
-		this.world.app.stage.addChild(this.graphics);
+		this.world.app.stage.addChild(this.graphics as DisplayObject);
 	}
 
 	onPositionChanged({x, y}) {

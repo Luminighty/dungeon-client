@@ -33,6 +33,7 @@
   "dependencies": {
     "@luminight/math": "^1.0.1",
     "@pixi-essentials/cull": "^2.0.0",
+    "@pixi/layers": "^2.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
