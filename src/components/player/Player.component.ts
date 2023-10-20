@@ -1,7 +1,6 @@
 import { Entity, World } from "../../entities";
 import { Controls } from "../../systems/controls";
 import { AnimationControllerComponent } from "../AnimationController.component";
-import { AnimationPlayerComponent } from "../AnimationPlayer.component";
 
 export class PlayerComponent {
 	static readonly COMPONENT_ID = "PlayerComponent" as const;
@@ -21,7 +20,7 @@ export class PlayerComponent {
 	move() {
 		const x = Controls.x;
 		const y = Controls.y;
-		this.facing = this.getFacing(x, y) ?? this.facing
+		this.facing = this.getFacing(x, y);
 		this.animationController.setParam("facing", this.facing);
 		this.animationController.setParam("moving", Boolean(x || y));
 		this.animationController.updateAnimation();
@@ -36,9 +35,6 @@ export class PlayerComponent {
 			return "up";
 		if (y > 0)
 			return "down";
-		return null;
+		return this.facing;
 	}
-
-
-
 }
