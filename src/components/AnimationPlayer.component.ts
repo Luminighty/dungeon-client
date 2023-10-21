@@ -37,15 +37,27 @@ export class AnimationPlayerComponent {
 	playing = true;
 	private lastFrame = 0;
 
-	onInit() {
+	onInit({animations}) {
 		this.sprite = this.parent.getComponent(SpriteComponent);
+		this.animations = animations ?? this.animations;
 		this.animation = this.animations[0];
 	}
 
 	onLateInit() {
-		this.texture.once("update", () => {
-			this.texture.frame = new Rectangle(0, 0, this.width, this.height);
-		})
+		const frame = this.animation.frames[0];
+		const rect = new Rectangle(
+			frame.x * (this.width + this.offsetX),
+			frame.y * (this.height + this.offsetY),
+			this.width,
+			this.height
+		);
+		if (this.texture.valid) {
+			this.texture.frame = rect;
+		} else {
+			this.texture.once("update", () => {
+				this.texture.frame = rect;
+			})
+		}
 	}
 
 	setFrame(x, y) {

@@ -1,0 +1,68 @@
+{
+    "automappingRulesFile": "rules.tmx",
+    "commands": [
+    ],
+    "extensionsPath": "extensions",
+    "folders": [
+        "objects",
+        "maps",
+        "tilesets"
+    ],
+    "properties": [
+    ],
+    "propertyTypes": [
+        {
+            "id": 1,
+            "name": "Item",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "key",
+                "boss_key",
+                "bomb",
+                "bow"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 3,
+            "members": [
+                {
+                    "name": "height",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "width",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "x",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "y",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "Rect",
+            "type": "class",
+            "useAs": [
+                "property",
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset",
+                "project"
+            ]
+        }
+    ]
+}

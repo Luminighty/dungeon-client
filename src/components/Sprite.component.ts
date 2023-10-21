@@ -17,7 +17,7 @@ export class SpriteComponent {
 
 	onInit({x, y, sprite}) {
 		const texture = Texture.from(sprite ?? this.src ?? EMPTY_TEXTURE);
-		this.sprite = new Sprite(texture);
+		this.sprite = new Sprite(texture.clone());
 		this.sprite.anchor.set(this.anchorX, this.anchorY);
 		this.sprite.position.set(x, y);
 		this.world.renderContainers[this.layer].addChild(this.sprite);
@@ -45,12 +45,19 @@ export class SpriteComponent {
 		this.sprite.visible = false;
 	}
 
-	get flipX() {
-		return this.sprite.scale.x < 0;
-	}
+	get flipX() { return this.sprite.scale.x < 0; }
 
 	set flipX(value: boolean) {
 		if (this.flipX !== value)
 			this.sprite.scale.x *= -1;
 	}
+
+	get flipY() { return this.sprite.scale.y < 0; }
+	set flipY(value: boolean) {
+		if (this.flipY !== value)
+			this.sprite.scale.y *= -1;
+	}
+
+	get rotation() { return this.sprite.rotation; }
+	set rotation(value) { this.sprite.rotation = value; }
 }

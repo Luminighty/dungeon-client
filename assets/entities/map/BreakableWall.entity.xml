@@ -1,0 +1,3 @@
+<Entity id="BreakableWall">
+	<Include from="Tile" />
+</Entity>

@@ -1,0 +1,107 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "maps/debug_dungeon.json",
+    "automapping.whileDrawing": true,
+    "expandedProjectPaths": [
+        "maps",
+        "Objects",
+        "map",
+        "objects",
+        "tilesets"
+    ],
+    "fileStates": {
+        ":/automap-tiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "debug_dungeon.tmx": {
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 114.5,
+                "y": 176.25
+            }
+        },
+        "dungeon.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 3,
+            "scaleInEditor": 4
+        },
+        "maps/debug_dungeon.json": {
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 4,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 134.125,
+                "y": 239.5
+            }
+        },
+        "maps/debug_dungeon.tmx": {
+            "scale": 3,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 61.16666666666666,
+                "y": 204
+            }
+        },
+        "maps/dungeon.tsx": {
+            "scaleInDock": 1
+        },
+        "rules.tmx": {
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 106.49999999999999,
+                "y": 21.83333333333333
+            }
+        },
+        "tilesets/dungeon.json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilesets/dungeon.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "frame.defaultDuration": 300,
+    "last.exportedFilePath": "D:/Projects/node/dungeon/client/assets/map",
+    "last.externalTilesetPath": "D:/Projects/node/dungeon/client/assets/tiled/tilesets",
+    "last.imagePath": "D:/Projects/node/dungeon/client/assets/textures",
+    "last.objectTemplatePath": "D:/Projects/node/dungeon/client/assets/map/Objects",
+    "lastUsedTilesetExportFilter": "JSON tileset files (*.tsj *.json)",
+    "map.fixedSize": true,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "maps/debug_dungeon.json",
+        "tilesets/dungeon.json"
+    ],
+    "project": "map-editor.tiled-project",
+    "property.type": "object",
+    "recentFiles": [
+        "tilesets/dungeon.tsx",
+        "tilesets/dungeon.json",
+        "maps/debug_dungeon.json",
+        "maps/debug_dungeon.tmx",
+        "dungeon.tsx",
+        "rules.tmx",
+        "debug_dungeon.tmx",
+        ":/automap-tiles.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

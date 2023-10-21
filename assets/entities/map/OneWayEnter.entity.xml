@@ -1,0 +1,3 @@
+<Entity id="OneWayEnter">
+	<Include from="Tile" />
+</Entity>

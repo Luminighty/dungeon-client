@@ -1,0 +1,4 @@
+<Entity id="Chest">
+	<Include from="Tile" />
+	<ChestComponent />
+</Entity>

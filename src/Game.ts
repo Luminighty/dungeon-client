@@ -5,6 +5,7 @@ import { LoadingBar } from "./dialogs/LoadingBar";
 import { Entity, World, createWorld, loadEntityBlueprintRegistry } from "./entities";
 import { initControls, updateControls } from "./systems/controls";
 import { Socket } from "socket.io-client";
+import { MapComponent } from "./components/map/Map.component";
 
 export async function Init(app: Application) {
 	const loadingBar = LoadingBar();
@@ -21,8 +22,12 @@ export async function Init(app: Application) {
 
 	console.log("Starting ticker");
 	const hero = await world.addEntity("Hero");
+	const map = await world.addEntity("DebugMap");
 	window["hero"] = hero;
-	console.log(hero);
+	window["map"] = map.getComponent(MapComponent);
+	map.getComponent(MapComponent).loadMap(-160, -160);
+
+
 	app.ticker.add((dt) => {
 		world.queryEntity(UpdateComponent)[0]
 			.map((c) => c.update({dt}));

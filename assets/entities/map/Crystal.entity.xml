@@ -1,0 +1,3 @@
+<Entity id="Crystal">
+	<Include from="Tile" />
+</Entity>

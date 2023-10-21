@@ -1,0 +1,3 @@
+<Entity id="BossDoor">
+	<Include from="Tile" />
+</Entity>

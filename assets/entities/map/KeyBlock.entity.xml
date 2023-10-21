@@ -1,0 +1,3 @@
+<Entity id="KeyBlock">
+	<Include from="Tile" />
+</Entity>

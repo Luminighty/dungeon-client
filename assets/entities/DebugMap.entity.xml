@@ -1,0 +1,7 @@
+<Entity id="DebugMap">
+	<TilesetComponent 
+		image_src="assets/textures/tileset.png"
+		tileset="assets/tiled/tilesets/dungeon.json"
+	/>
+	<MapComponent map="assets/tiled/maps/debug_dungeon.json" />
+</Entity>

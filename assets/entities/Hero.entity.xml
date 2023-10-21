@@ -1,44 +1,7 @@
 <Entity id="Hero">
 	<PlayerComponent />
 	<SpriteComponent src="assets/textures/Hero.png" anchorX="0.5" anchorY="0.5" />
-	<AnimationPlayerComponent offsetX="1" offsetY="1">
-		<Animation name="idle_down"><Frame x="0" y="0" /></Animation>
-		<Animation name="idle_up"><Frame x="1" y="0" /></Animation>
-		<Animation name="idle_left"><Frame x="2" y="0" flipX="false" /></Animation>
-		<Animation name="idle_right"><Frame x="2" y="0" flipX="true" /></Animation>
-		<Animation name="move_down" loop="true" speed="3">
-			<Frame x="0" y="0" flipX="false"/>
-			<Frame x="0" y="0" flipX="true"/>
-		</Animation>
-		<Animation name="move_up" loop="true" speed="3">
-			<Frame x="1" y="0" flipX="false" />
-			<Frame x="1" y="0" flipX="true" />
-		</Animation>
-		<Animation name="move_left" loop="true" speed="3" flipX="false">
-			<Frame x="3" y="0"/>
-			<Frame x="2" y="0"/>
-		</Animation>
-		<Animation name="move_right" loop="true" speed="3" flipX="true">
-			<Frame x="3" y="0" />
-			<Frame x="2" y="0" />
-		</Animation>
-		<Animation name="attack_down" speed="3" flipX="false">
-			<Frame x="0" y="1"/>
-			<Frame x="1" y="1"/>
-		</Animation>
-		<Animation name="attack_up" speed="3" flipX="false">
-			<Frame x="2" y="1"/>
-			<Frame x="3" y="1"/>
-		</Animation>
-		<Animation name="attack_left" speed="3" flipX="false">
-			<Frame x="4" y="1"/>
-			<Frame x="5" y="1"/>
-		</Animation>
-		<Animation name="attack_right" speed="3" flipX="true">
-			<Frame x="4" y="1" />
-			<Frame x="5" y="1" />
-		</Animation>
-	</AnimationPlayerComponent>
+	<Include from="HeroAnimation" />
 	<AnimationControllerComponent>
 		<Trigger event="attack" facing="up" animation="attack_up" />
 		<Trigger event="attack" facing="down" animation="attack_down" />

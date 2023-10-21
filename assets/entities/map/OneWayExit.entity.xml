@@ -1,0 +1,3 @@
+<Entity id="OneWayExit">
+	<Include from="Tile" />
+</Entity>

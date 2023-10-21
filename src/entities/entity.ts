@@ -19,6 +19,8 @@ export class Entity {
 		if (!Component)
 			throw `Component not found '${componentId}'`;
 		const component = new Component();
+		component.parent = this;
+		component.world = this.world;
 		for (const key in props) {
 			const value = props[key];
 			component[key] = value;
@@ -90,11 +92,8 @@ export function registerEntity(blueprint: EntityBlueprint) {
 		const entity = new Entity();
 		entity.world = world;
 		
-		for (const {type, props} of blueprint.components) {
-			const component = entity.addComponent(Components[type], props);
-			component.parent = entity;
-			component.world = world;
-		}
+		for (const {type, props} of blueprint.components)
+			entity.addComponent(Components[type], props);
 
 		return entity;
 	}

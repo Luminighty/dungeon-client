@@ -1,0 +1,3 @@
+<Entity id="Spawn">
+	<Include from="Tile" />
+</Entity>

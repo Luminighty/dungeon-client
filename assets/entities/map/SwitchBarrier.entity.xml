@@ -1,0 +1,3 @@
+<Entity id="SwitchBarrier">
+	<Include from="Tile" />
+</Entity>

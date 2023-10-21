@@ -1,0 +1,3 @@
+<Entity id="Guide">
+	<Include from="Tile" />
+</Entity>
