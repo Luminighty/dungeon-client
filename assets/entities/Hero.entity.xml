@@ -1,6 +1,8 @@
 <Entity id="Hero">
 	<PlayerComponent />
-	<SpriteComponent src="assets/textures/Hero.png" anchorX="0.5" anchorY="0.5" />
+	<SpriteComponent src="assets/textures/Hero.png" anchorX="0.5" anchorY="0.5" layer="entity" />
+	<CollisionComponent x="4" y="6" height="8" width="8" />
+	<PositionComponent />
 	<Include from="HeroAnimation" />
 	<AnimationControllerComponent>
 		<Trigger event="attack" facing="up" animation="attack_up" />

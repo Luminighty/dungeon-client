@@ -7,6 +7,8 @@ import { SpriteComponent } from "./Sprite.component";
 interface Frame {
 	x: number,
 	y: number,
+	moveX?: number,
+	moveY?: number,
 	flipX?: boolean,
 }
 
@@ -67,7 +69,7 @@ export class AnimationPlayerComponent {
 	}
 
 	playAnimation(animation: string) {
-		if (this.animation.name == animation)
+		if (this.animation.name == animation && this.playing)
 			return;
 		const newAnimation = this.animations.find((value) => value.name === animation);
 		if (!newAnimation)
@@ -88,15 +90,17 @@ export class AnimationPlayerComponent {
 		if (frameIndex == this.lastFrame)
 			return;
 		if (!this.animation.loop && frameIndex == this.animation.frames.length) {
-			this.parent.fireEvent("onAnimationFinished", {animation: this.animation.name, sender: this});
 			this.playing = false;
+			this.parent.fireEvent("onAnimationFinished", {animation: this.animation.name, sender: this});
 			return;
 		}
 		frameIndex %= this.animation.frames.length
+		this.lastFrame = frameIndex;
 		const frame = this.animation.frames[frameIndex];
 		this.setFrame(frame.x, frame.y);
 		if (frame.flipX !== undefined)
 			this.sprite.flipX = frame.flipX;
+		if (frame.moveX || frame.moveY)
+			this.parent.fireEvent("onMove", {x: frame.moveX ?? 0, y: frame.moveY ?? 0})
 	}
-
 }

@@ -21,7 +21,7 @@ export class AnimationControllerComponent {
 	param = {};
 	conditions: Condition[] = [];
 	triggers: Trigger[] = [];
-	isTriggerPlaying = true;
+	currentTrigger?: Trigger;
 	isDirty = true;
 
 	onInit() {
@@ -30,7 +30,7 @@ export class AnimationControllerComponent {
 	}
 
 	updateAnimation() {
-		if (this.isTriggerPlaying)
+		if (this.currentTrigger)
 			return;
 		if (!this.isDirty)
 			return;
@@ -43,12 +43,13 @@ export class AnimationControllerComponent {
 		}
 	}
 
-	triggerAnimation(event: string) {
+	onTriggerAnimation({event}) {
 		for (const trigger of this.triggers) {
 			if (trigger.event !== event)
 				continue;
 			if (this.isConditionTrue(trigger.conditions)) {
 				this.animationPlayer.playAnimation(trigger.animation);
+				this.currentTrigger = trigger;
 				return;
 			}
 		}
@@ -59,7 +60,11 @@ export class AnimationControllerComponent {
 	}
 
 	onAnimationFinished({animation}) {
-		this.isTriggerPlaying = false;
+		if (animation === this.currentTrigger?.animation) {
+			this.parent.fireEvent("onTriggerFinished", {event: this.currentTrigger?.event});
+			this.currentTrigger = undefined;
+			this.isDirty = true;
+		}
 	}
 
 	setParam(param: string, value: unknown) {

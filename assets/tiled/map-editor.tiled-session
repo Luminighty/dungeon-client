@@ -6,11 +6,11 @@
     "activeFile": "maps/debug_dungeon.json",
     "automapping.whileDrawing": true,
     "expandedProjectPaths": [
-        "maps",
-        "Objects",
+        "tilesets",
         "map",
         "objects",
-        "tilesets"
+        "maps",
+        "Objects"
     ],
     "fileStates": {
         ":/automap-tiles.tsx": {
@@ -37,11 +37,11 @@
             "expandedObjectLayers": [
                 4
             ],
-            "scale": 4,
+            "scale": 2,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 134.125,
-                "y": 239.5
+                "x": 23,
+                "y": 127.75
             }
         },
         "maps/debug_dungeon.tmx": {
@@ -64,8 +64,8 @@
             }
         },
         "tilesets/dungeon.json": {
-            "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scaleInDock": 2,
+            "scaleInEditor": 4
         },
         "tilesets/dungeon.tsx": {
             "scaleInDock": 1,
@@ -90,9 +90,9 @@
     "project": "map-editor.tiled-project",
     "property.type": "object",
     "recentFiles": [
-        "tilesets/dungeon.tsx",
         "tilesets/dungeon.json",
         "maps/debug_dungeon.json",
+        "tilesets/dungeon.tsx",
         "maps/debug_dungeon.tmx",
         "dungeon.tsx",
         "rules.tmx",

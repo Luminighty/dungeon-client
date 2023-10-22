@@ -6,6 +6,7 @@ import { Entity, World, createWorld, loadEntityBlueprintRegistry } from "./entit
 import { initControls, updateControls } from "./systems/controls";
 import { Socket } from "socket.io-client";
 import { MapComponent } from "./components/map/Map.component";
+import { SpawnComponent } from "./components/map/Spawn.component";
 
 export async function Init(app: Application) {
 	const loadingBar = LoadingBar();
@@ -21,12 +22,14 @@ export async function Init(app: Application) {
 	//const { userId, entities, spawn } = await world.networkHandler.initPlayer();
 
 	console.log("Starting ticker");
-	const hero = await world.addEntity("Hero");
 	const map = await world.addEntity("DebugMap");
-	window["hero"] = hero;
-	window["map"] = map.getComponent(MapComponent);
-	map.getComponent(MapComponent).loadMap(-160, -160);
+	await map.getComponent(MapComponent).loadMap(-160, -160);
 
+	const spawn = world.querySingleton(SpawnComponent)
+	const hero = await world.addEntity("Hero", {x: spawn.x, y: spawn.y});
+	window["hero"] = hero;
+	window["sword"] = await world.addEntity("Sword");
+	window["map"] = map.getComponent(MapComponent);
 
 	app.ticker.add((dt) => {
 		world.queryEntity(UpdateComponent)[0]

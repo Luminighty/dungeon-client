@@ -1,3 +1,4 @@
 <Entity id="Pot">
-	<Include from="Tile" />
+	<PotComponent />
+	<Include from="Wall" />
 </Entity>

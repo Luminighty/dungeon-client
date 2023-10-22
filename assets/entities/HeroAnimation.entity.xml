@@ -20,20 +20,24 @@
 			<Frame x="3" y="0" />
 			<Frame x="2" y="0" />
 		</Animation>
-		<Animation name="attack_down" speed="3" flipX="false">
+		<Animation name="attack_down" speed="6" flipX="false">
 			<Frame x="0" y="1"/>
 			<Frame x="1" y="1"/>
+			<Frame x="1" y="1"/>
 		</Animation>
-		<Animation name="attack_up" speed="3" flipX="false">
+		<Animation name="attack_up" speed="6" flipX="false">
 			<Frame x="2" y="1"/>
 			<Frame x="3" y="1"/>
+			<Frame x="3" y="1"/>
 		</Animation>
-		<Animation name="attack_left" speed="3" flipX="false">
+		<Animation name="attack_left" speed="6" flipX="false">
 			<Frame x="4" y="1"/>
 			<Frame x="5" y="1"/>
+			<Frame x="5" y="1"/>
 		</Animation>
-		<Animation name="attack_right" speed="3" flipX="true">
+		<Animation name="attack_right" speed="6" flipX="true">
 			<Frame x="4" y="1" />
+			<Frame x="5" y="1" />
 			<Frame x="5" y="1" />
 		</Animation>
 	</AnimationPlayerComponent>

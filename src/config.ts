@@ -14,9 +14,9 @@ export const GameConfig = {
 	renderLayers: [
 		"farBackground",
 		"background",
+		"tile",
 		"default",
 		"entity",
-		"tile",
 		"foreground",
 		"farForeground",
 		"UI",

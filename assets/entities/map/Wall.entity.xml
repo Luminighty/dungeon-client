@@ -1,3 +1,5 @@
 <Entity id="Wall">
 	<Include from="Tile" />
+	<CollisionComponent />
+	<PositionComponent />
 </Entity>

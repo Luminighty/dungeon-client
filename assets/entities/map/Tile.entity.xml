@@ -1,4 +1,4 @@
 <Entity id="Tile">
 	<SpriteComponent anchorX="0.5" anchorY="0.5" />
-	<TileComponent />
+	<TileComponent layer="tile" />
 </Entity>

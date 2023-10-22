@@ -13,24 +13,7 @@ export const Controls = {
 	right: ButtonState.idle,
 	up: ButtonState.idle,
 	down: ButtonState.idle,
-	digging: ButtonState.idle,
-	building: ButtonState.idle,
-	jumping: ButtonState.idle,
-	inventory: ButtonState.idle,
-	mouse: {
-		left: ButtonState.idle,
-		middle: ButtonState.idle,
-		right: ButtonState.idle,
-		screenX: 0, screenY: 0,
-		get x() {
-			return (this.screenX - appRefence.stage.position.x) / appRefence.stage.scale.x + appRefence.stage.pivot.x
-		},
-		get y() {
-			return (this.screenY - appRefence.stage.position.y) / appRefence.stage.scale.y + appRefence.stage.pivot.y
-		},
-		scrollY: 0,
-	},
-
+	attack: ButtonState.idle,
 	get x() {
 		return +Controls.isHeld(this.right) - +Controls.isHeld(this.left)
 	},
@@ -50,14 +33,11 @@ export const Controls = {
 }
 
 const KeyBinds = {
-	"KeyW": "up",
-	"KeyA": "left",
-	"KeyS": "down",
-	"KeyD": "right",
-	"KeyC": "digging",
-	"Space": "jumping",
-	"KeyV": "building",
-	"KeyE": "inventory",
+	"ArrowUp": "up",
+	"ArrowLeft": "left",
+	"ArrowDown": "down",
+	"ArrowRight": "right",
+	"KeyX": "attack",
 }
 
 const MouseButtons = [ "left", "middle", "right" ];
@@ -67,9 +47,10 @@ export function initControls(app: Application) {
 
 	window.addEventListener('keydown', (event) => {
 		const key = KeyBinds[event.code];
-		if (key && !event.repeat)
+		if (key && !event.repeat) {
 			event.preventDefault();
 			Controls[key] = ButtonState.pressed;
+		}
 	});
 
 	
@@ -82,21 +63,6 @@ export function initControls(app: Application) {
 	window.document.removeEventListener('mousemove', app.renderer.plugins.interaction.onPointerMove, true);
 	window.document.removeEventListener('pointermove', app.renderer.plugins.interaction.onPointerMove, true);
 	app.stage.eventMode = "static"
-	window.addEventListener("pointermove", (event) => {
-		Controls.mouse.screenX = event.x;
-		Controls.mouse.screenY = event.y;
-	})
-	
-	window.addEventListener("pointerdown", (event) => {
-		Controls.mouse[MouseButtons[event.button]] = ButtonState.pressed;
-	});
-	window.addEventListener("pointerup", (event) => {
-		Controls.mouse[MouseButtons[event.button]] = ButtonState.released;
-	});
-
-	window.addEventListener("wheel", (event) => {
-		Controls.mouse.scrollY = Math.sign(event.deltaY);
-	});
 }
 
 function stepButtonState(object, key) {
@@ -114,16 +80,9 @@ function stepButtonState(object, key) {
 }
 
 export function updateControls() {
-	Controls.mouse.scrollY = 0;
 	stepButtonState(Controls, "left");
 	stepButtonState(Controls, "right");
 	stepButtonState(Controls, "up");
 	stepButtonState(Controls, "down");
-	stepButtonState(Controls, "digging");
-	stepButtonState(Controls, "building");
-	stepButtonState(Controls, "jumping");
-	stepButtonState(Controls, "inventory");
-	stepButtonState(Controls.mouse, "left");
-	stepButtonState(Controls.mouse, "middle");
-	stepButtonState(Controls.mouse, "right");
+	stepButtonState(Controls, "attack");
 }

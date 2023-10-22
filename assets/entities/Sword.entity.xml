@@ -1,0 +1,33 @@
+<Entity id="Sword">
+	<SpriteComponent src="assets/textures/sword.png" anchorX="0.5" anchorY="0.5" layer="foreground" />
+	<SwordComponent />
+	<DebugRectComponent />
+	<TriggerColliderComponent />
+	<AnimationPlayerComponent>
+		<Animation name="default">
+			<Frame x="1" y="1" />
+		</Animation>
+		<Animation name="swing_down" speed="6">
+			<Frame x="0" y="1" moveX="-13" />
+			<Frame x="0" y="2" moveX="5" moveY="13" />
+			<Frame x="1" y="2" moveX="7" moveY="3" />
+		</Animation>
+		<Animation name="swing_up" speed="6">
+			<Frame x="2" y="1" moveX="15" moveY="-8" />
+			<Frame x="2" y="0" moveX="-3" moveY="-5" />
+			<Frame x="1" y="0" moveX="-11" moveY="-3" />
+		</Animation>
+		<Animation name="swing_left" speed="6">
+			<Frame x="1" y="0" moveY="-16" />
+			<Frame x="0" y="0" moveX="-13" moveY="3" />
+			<Frame x="0" y="1" moveX="-3" moveY="13" />
+		</Animation>
+		<Animation name="swing_right" speed="6">
+			<Frame x="1" y="0" moveX="8" moveY="-16" />
+			<Frame x="2" y="0" moveX="5" moveY="3" />
+			<Frame x="2" y="1" moveX="3" moveY="13" />
+		</Animation>
+	</AnimationPlayerComponent>
+	<PositionComponent />
+	<UpdateComponent />
+</Entity>
