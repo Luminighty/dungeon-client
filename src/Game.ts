@@ -23,7 +23,8 @@ export async function Init(app: Application) {
 
 	console.log("Starting ticker");
 	const map = await world.addEntity("DebugMap");
-	await map.getComponent(MapComponent).loadMap(-160, -160);
+	//await map.getComponent(MapComponent).loadMap(-160, -160);
+	await map.getComponent(MapComponent).loadMap();
 
 	const spawn = world.querySingleton(SpawnComponent)
 	const hero = await world.addEntity("Hero", {x: spawn.x, y: spawn.y});

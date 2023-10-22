@@ -6,7 +6,6 @@ export class SpawnComponent {
 	onInit({x, y}) {
 		this.x = x ?? this.x;
 		this.y = y ?? this.y;
-		console.log("Spawn");
 	}
 
 }

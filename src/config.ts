@@ -27,7 +27,7 @@ export type RenderLayerKey = typeof GameConfig.renderLayers[number];
 
 export const AppConfig = {
 	backgroundColor: 0x000005,
-	scale: 3,
+	scale: 1,
 }
 
 export function PositionToChunk(position: IVector2) {
